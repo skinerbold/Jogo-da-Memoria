@@ -136,16 +136,16 @@ export default function MemoryGame() {
         <button onClick={() => resetGame()} className="reset-button">Reiniciar Jogo</button>
       </header>
       
-      <div className="max-w-4xl mx-auto p-8">
-        <div className="flex justify-between items-center mb-8 bg-white/80 p-4 rounded-lg">
-          <h2 className="text-2xl font-bold text-[#8d334b] font-poppins poppins-bold">Movimentos: {moves}</h2>
-          <div className="difficulty-selector relative">
-            <div className="flex items-center gap-2">
-              <span className="text-[#8d334b] font-medium">Nível do Jogo:</span>
+      <div className="max-w-4xl mx-auto p-4 md:p-8">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-4 md:mb-8 bg-white/80 p-3 md:p-4 rounded-lg">
+          <h2 className="text-xl md:text-2xl font-bold text-[#8d334b] font-poppins poppins-bold mb-2 md:mb-0">Movimentos: {moves}</h2>
+          <div className="difficulty-selector relative w-full md:w-auto">
+            <div className="flex items-center gap-2 justify-center md:justify-start">
+              <span className="text-[#8d334b] font-medium text-sm md:text-base">Nível do Jogo:</span>
               <div className="relative">
                 <button 
                   onClick={() => setShowDifficultyOptions(!showDifficultyOptions)}
-                  className="px-3 py-2 rounded-md font-medium bg-[#fd9c69] text-white hover:bg-[#e88c59] transition-all"
+                  className="px-2 md:px-3 py-1 md:py-2 rounded-md font-medium bg-[#fd9c69] text-white hover:bg-[#e88c59] transition-all text-sm md:text-base"
                 >
                   {difficulty === 'easy' ? 'Fácil (4 pares)' : 
                    difficulty === 'medium' ? 'Médio (6 pares)' : 
@@ -153,14 +153,14 @@ export default function MemoryGame() {
                 </button>
                 
                 {showDifficultyOptions && (
-                  <div className="absolute top-full right-0 mt-1 bg-white rounded-md shadow-lg overflow-hidden z-10">
+                  <div className="absolute top-full right-0 mt-1 bg-white rounded-md shadow-lg overflow-hidden z-10 w-full">
                     {difficulty !== 'easy' && (
                       <button 
                         onClick={() => {
                           handleDifficultyChange('easy');
                           setShowDifficultyOptions(false);
                         }}
-                        className="w-full px-3 py-2 text-left hover:bg-[#fd9c69] hover:text-white text-[#8d334b] transition-all"
+                        className="w-full px-3 py-2 text-left hover:bg-[#fd9c69] hover:text-white text-[#8d334b] transition-all text-sm md:text-base"
                       >
                         Fácil (4 pares)
                       </button>
@@ -194,7 +194,7 @@ export default function MemoryGame() {
           </div>
         </div>
         
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
           {cards
             .filter(card => !card.isMatched)
             .map(card => (
