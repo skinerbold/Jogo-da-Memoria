@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;    /* Branco */
+    --foreground: 222.2 84% 4.9%; /* Preto azulado */
+    --sombra: rgba(0, 0, 0, 0.5);
+  }
+
+  body {
+    @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))];
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+/* === CABEÇALHO === */
+.header-institucional {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem 2rem;
+    backdrop-filter: blur(5px);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    position: relative;
+}
+
+.titulo-jogo {
+    color: white;
+    margin: 0;
+    font-size: 1.8rem;
+    text-shadow: 2px 2px 4px var(--sombra);
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    grid-column: 2;
+}
+
+.reset-button {
+    grid-column: 3;
+    justify-self: end;
+    background: #83342e;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: "Poppins", sans-serif;
+}
+
+.reset-button:hover {
+    background: #6d2a25;
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header-institucional {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem 0.5rem !important;
+    }
+    
+    .titulo-jogo {
+        font-size: 1.2rem !important;
+        max-width: 90%;
+    }
+}
+
+/* Difficulty selector styling */
+.difficulty-selector {
+  position: relative;
+}
+
+.difficulty-selector [data-radix-select-trigger] {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.difficulty-selector [data-radix-select-trigger]:hover {
+  transform: scale(1.02);
+}
