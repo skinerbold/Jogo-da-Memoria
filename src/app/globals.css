@@ -55,21 +55,62 @@
     background: #6d2a25;
     transform: scale(1.05);
 }
-
-/* Responsividade */
+/* === RESPONSIVIDADE === */
 @media (max-width: 768px) {
+  .header-institucional {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+  @media (max-width: 768px) {
+    .grid-cols-4 {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
     .header-institucional {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem 0.5rem !important;
+      padding: 0.8rem 1rem;
     }
-    
     .titulo-jogo {
-        font-size: 1.2rem !important;
-        max-width: 90%;
+      font-size: 1.4rem;
     }
+    .reset-button {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+    }
+    .difficulty-selector button {
+      font-size: 0.9rem;
+      padding: 0.5rem 0.8rem;
+    }
+    .flex.justify-between.items-center.mb-8 {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .flex.justify-between.items-center.mb-8 > h2 {
+      margin-bottom: 0.5rem;
+    }
+  }
+  .titulo-jogo {
+    grid-column: 1;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+  .reset-button {
+    grid-column: 1;
+    justify-self: center;
+    margin-top: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  .difficulty-selector {
+    width: 100%;
+  }
+  .difficulty-selector button {
+    font-size: 0.9rem;
+  }
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-
 /* Difficulty selector styling */
 .difficulty-selector {
   position: relative;
